@@ -29,14 +29,14 @@ def get_car_by_name(name: str):
         return "There is no car with name: " + name
 
 
-@app.post('/addcar')
+@app.post('/addCar')
 def add_car(car: Car):
     name = car.name
     speed = car.speed
     return salon.add_car(name, speed)
 
 
-@app.put('/updatecar')
+@app.put('/updateCar')
 def update_car(car: Car):
     updated_car = salon.update_car(car.id, car.name, car.speed)
     if updated_car is not None:
@@ -45,7 +45,7 @@ def update_car(car: Car):
         return "There is no car with id: " + str(car.id)
 
 
-@app.delete('/deletecar/{id}')
+@app.delete('/deleteCar/{id}')
 def delete_car(id: int):
     is_deleted = salon.delete_car_by_id(id)
     if is_deleted:
